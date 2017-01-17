@@ -1,0 +1,15 @@
+//sipavanje u bazu
+C:\Users\Profesor>e:
+
+E:\>cd j13netbeans
+
+E:\j13netbeans>cd EdunovaApp
+
+E:\j13netbeans\EdunovaApp>mysql -uedunova -pedunova --default_character_set=utf8
+ < skriptaj13.sql
+
+mysql -uroot -proot --default_character_set=utf8 < e:\registracija.sql
+https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html
+
+
+

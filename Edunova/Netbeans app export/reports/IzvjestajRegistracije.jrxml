@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.1.final using JasperReports Library version 5.6.1  -->
+<!-- 2014-10-18T16:03:13 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="izvjestajRegistracije" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="064ca274-2226-4f7e-b669-ebd08ef77bab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="stranka" class="valentic.registracija.model.Stranka"/>
+	<parameter name="vozilo" class="valentic.registracija.model.Vozilo"/>
+	<parameter name="placanje" class="valentic.registracija.model.Placanje"/>
+	<parameter name="zaposlenik" class="valentic.registracija.model.Zaposlenik"/>
+	<parameter name="registracija" class="valentic.registracija.model.Registracija"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="45">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="69b74e2d-2057-4bdb-91ae-8e13abde6334"/>
+					<staticText>
+						<reportElement x="0" y="4" width="70" height="20" forecolor="#FFFFFF" uuid="2db60fb5-7e3c-46e2-9376-dac9c2a85b2d"/>
+						<text><![CDATA[Ime]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="100" y="2" width="70" height="20" forecolor="#FFFFFF" uuid="758e53cf-e0f1-4d83-ad8d-e239796f9b71"/>
+						<text><![CDATA[Prezime]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="180" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="b037efe6-a4a2-401e-b3db-ea06b742911b"/>
+						<text><![CDATA[Adresa]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="280" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="4b24bdc8-817a-4063-97dc-c1144a9bee7e"/>
+						<text><![CDATA[Mobitel]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="380" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="91a3f509-f331-4fdc-93d4-f39bc8239c1c"/>
+						<text><![CDATA[Naziv automobila]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="480" y="2" width="74" height="20" forecolor="#FFFFFF" uuid="cd56886c-6751-4f12-8bb4-0c13905c4c10"/>
+						<text><![CDATA[Za platit]]></text>
+					</staticText>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="16"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" uuid="718d27da-3e17-4718-9cd4-b22cc5514083"/>
+				<imageExpression><![CDATA["jasperRegistracija.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="31860828-09f6-407d-9b09-8cc924f2882c"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="5cf3d755-4f6a-4734-a693-e106017a443d"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[EDUNOVA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="e6608b93-a5ab-4f45-86ec-3ae8fb751d6d"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Registracija vozila]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="ad52d8a0-1639-44cb-83a2-09bb583d559e"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="71c7e7bc-f497-4683-9a2f-d23c15cfe62f"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="12" width="70" height="20" forecolor="#FFFFFF" uuid="624f1136-83ba-4143-ba5b-edb8c7b265f9"/>
+					<text><![CDATA[Zaposlenik]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="5" width="146" height="15" uuid="60e49fce-5f7b-4ba5-b976-034acc78d7c4"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{zaposlenik}.getImePrezime()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="3" width="70" height="30" uuid="55f0a5c0-05a8-4f08-94ce-6936dc135eaf"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{registracija}.getDatumRegistracije()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="5" width="78" height="15" uuid="15c04aa4-1cab-4592-a639-20b5f7eccbe5"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{stranka}.getIme()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="5" width="100" height="15" uuid="3749b450-6eb7-419b-a84c-0050e634bcdc"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{stranka}.getPrezime()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="5" width="100" height="15" uuid="d6b367a6-6bad-4d07-8b9b-2fbea6e9b061"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{stranka}.getAdresa()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="5" width="100" height="15" uuid="341be92e-beb0-42e0-b4be-e4100a0aff2a"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{stranka}.getMobitel()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="5" width="100" height="15" uuid="ee6bccbc-517e-416a-9dfe-db4771481069"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vozilo}.getNazivVozila()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="5" width="74" height="15" uuid="45688348-54ad-4b7b-b76f-c2237e58158c"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{placanje}.getUkupno()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="cb2fc308-e13d-403f-915a-eabb217231ff"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="e8239a6f-0b1c-421b-9b8c-6af3755ef0b8"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="d87c2e9b-bc4f-4428-b861-a57556a0f3ee"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="23bcebe3-6cdb-43b8-82d8-86153ac88e10"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="9b084dec-ca30-4133-86b0-ca6739a983ab"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
