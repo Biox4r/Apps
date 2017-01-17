@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainForm" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1050.0" prefWidth="1680.0" style="-fx-background-color: #f3f1ec;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accountAppView.MainFormController">
+   <children>
+      <MenuBar layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="1444.0" style="-fx-border-color: #787878;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Work with">
+               <items>
+                  <MenuItem fx:id="employeeMenu" mnemonicParsing="false" onAction="#openEmployeeMenu" text="Employee" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Application Menagment">
+            <items>
+              
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+         <effect>
+            <DropShadow color="#515151" />
+         </effect>
+      </MenuBar>
+      <TabPane layoutX="14.0" layoutY="77.0" prefHeight="919.0" prefWidth="1657.0" style="-fx-border-color: #787878;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="Menagment">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="862.0" prefWidth="1655.0" style="-fx-border-color: #cdcdce; -fx-background-color: #e3e3e3;">
+                     <children>
+                        <TableView fx:id="tableAcc" layoutX="14.0" layoutY="95.0" prefHeight="369.0" prefWidth="1073.0">
+                           <columns>
+                              <TableColumn fx:id="tbNumber" prefWidth="263.0" text="Number" />
+                              <TableColumn fx:id="tbKeytype" prefWidth="45.0" text="Type" />
+                              <TableColumn fx:id="tbCurrency" prefWidth="73.0" text="Currency" />
+                              <TableColumn fx:id="tbActive" minWidth="8.0" prefWidth="55.0" text="Active" />
+                              <TableColumn fx:id="tbBalance" prefWidth="94.0" text="Balance" />
+                           </columns>
+                        </TableView>
+                        <Label fx:id="lblAccountNameSearch" layoutX="14.0" layoutY="20.0" prefHeight="17.0" prefWidth="200.0" text="Search for account">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboAccSearch" editable="true" layoutX="14.0" layoutY="44.0" prefHeight="27.0" prefWidth="250.0" style="-fx-border-color: #7cf457;">
+                           <effect>
+                              <DropShadow color="#27a3b9" />
+                           </effect>
+                        </ComboBox>
+                        <Button fx:id="butShowAccounts" layoutX="887.0" layoutY="479.0" mnemonicParsing="false" onAction="#showAccounts" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: b4b4b4;" text="Show Accounts">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="1096.0" layoutY="97.0" orientation="VERTICAL" prefHeight="770.0" prefWidth="12.0" />
+                        <Pane fx:id="accountPane" layoutX="1120.0" layoutY="144.0" prefHeight="682.0" prefWidth="513.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <TextField fx:id="txtNumber" layoutX="15.0" layoutY="117.0" prefHeight="31.0" prefWidth="200.0" />
+                              <Pane fx:id="paneActive" layoutX="14.0" layoutY="251.0" prefHeight="52.0" prefWidth="200.0" style="-fx-border-color: #787878;">
+                                 <children>
+                                    <CheckBox fx:id="butActiveYes" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#activeYes" prefHeight="17.0" prefWidth="64.0" style="-fx-background-color: #7cf457;" text="Yes" />
+                                    <CheckBox fx:id="butActiveNo" layoutX="100.0" layoutY="18.0" mnemonicParsing="false" onAction="#activeNo" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: F84525;" text="No" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#976565" />
+                                 </effect>
+                              </Pane>
+                              <Button fx:id="butUpdate" layoutX="13.0" layoutY="643.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: a4eaff;" text="Update Account">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="butCancel" layoutX="220.0" layoutY="643.0" mnemonicParsing="false" onAction="#cancelInsert" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: ff8364;" text="Cancel">
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#ae0101" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblNumber" layoutX="15.0" layoutY="97.0" prefHeight="17.0" prefWidth="200.0" text="Number">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="butInsert" layoutX="14.0" layoutY="643.0" mnemonicParsing="false" onAction="#insertAccount" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: beff95;" text="Insert Account">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="butDelete" layoutX="220.0" layoutY="643.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: ff8364;" text="Delete Account">
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#ae0101" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblActive" layoutX="14.0" layoutY="227.0" prefHeight="17.0" prefWidth="255.0" text="Set if user will be active or not">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="13.0" layoutY="211.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Separator layoutX="13.0" layoutY="487.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Separator layoutX="13.0" layoutY="396.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Separator layoutX="13.0" layoutY="308.0" prefHeight="16.0" prefWidth="383.0" />
+                              
+                              <Label fx:id="lblCurrency" layoutX="15.0" layoutY="157.0" prefHeight="17.0" prefWidth="200.0" text="Select currency">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="comboCurrency" layoutX="14.0" layoutY="181.0" prefHeight="31.0" prefWidth="200.0" />
+                              <Label fx:id="lblInsertNumber" layoutX="225.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" textFill="RED">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font></Label>
+                              <Label fx:id="lblInsertActive" layoutX="225.0" layoutY="265.0" prefHeight="25.0" prefWidth="150.0" textFill="RED">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font></Label>
+                              <Label fx:id="lblInsertType" layoutX="225.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" textFill="RED">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font></Label>
+                              <Label fx:id="lblInsertCurrency" layoutX="225.0" layoutY="184.0" prefHeight="25.0" prefWidth="150.0" textFill="RED">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font></Label>
+                              <Label fx:id="lblTypeOfNumber" layoutX="13.0" layoutY="22.0" prefHeight="17.0" prefWidth="200.0" text="Select type of number">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="comboType" layoutX="13.0" layoutY="47.0" prefHeight="31.0" prefWidth="200.0" />
+                              <ComboBox fx:id="comboRecharge" layoutX="15.0" layoutY="359.0" prefHeight="31.0" prefWidth="200.0" />
+                              <Label fx:id="lblRecharge" layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="200.0" text="Recharge - set new balance">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblInsertRecharge" layoutX="225.0" layoutY="362.0" prefHeight="25.0" prefWidth="150.0" textFill="RED">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="butRecharge" layoutX="14.0" layoutY="412.0" mnemonicParsing="false" onAction="#insertVaucher" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: beff95;" text="Recharge account">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="1120.0" layoutY="90.0" prefHeight="40.0" prefWidth="115.0" style="-fx-border-color: #787878;">
+                           <effect>
+                              <DropShadow color="#27a3b9" />
+                           </effect>
+                        </Pane>
+                        <Label fx:id="lblSelectAccount" layoutX="275.0" layoutY="48.0" prefHeight="25.0" prefWidth="150.0" textFill="RED">
+                           <font>
+                              <Font size="12.0" />
+                           </font></Label>
+                        <Label fx:id="lblEditMsg" layoutX="677.0" layoutY="48.0" prefHeight="25.0" prefWidth="410.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="14.0" layoutY="527.0" prefHeight="298.0" prefWidth="370.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <Button fx:id="butStartSimulation" layoutX="14.0" layoutY="258.0" mnemonicParsing="false" onAction="#startSimulation" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: beff95;" text="Start simulation">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="14.0" layoutY="22.0" prefHeight="21.0" prefWidth="237.0" text="Current status" />
+                              <TextArea fx:id="txtaStatus" layoutX="14.0" layoutY="43.0" prefHeight="200.0" prefWidth="333.0" />
+                           </children>
+                        </Pane>
+                        <Label fx:id="lblAccountNameSearch1" layoutX="14.0" layoutY="510.0" prefHeight="17.0" prefWidth="200.0" text="Demo">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="butNewAcc" layoutX="1126.0" layoutY="97.0" mnemonicParsing="false" onAction="#newAccount" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: beff95;" text="New Account">
+                           <effect>
+                              <DropShadow color="#ffd5d5" />
+                           </effect>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Pane fx:id="userPane1" layoutX="462.0" layoutY="528.0" prefHeight="296.0" prefWidth="280.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <Button fx:id="butSend1" layoutX="14.0" layoutY="258.0" mnemonicParsing="false" onAction="#senderOne" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: beff95;" text="Send msg">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="user1" layoutX="14.0" layoutY="22.0" prefHeight="21.0" prefWidth="247.0" />
+                              <TextArea fx:id="chat1" layoutX="14.0" layoutY="43.0" prefHeight="158.0" prefWidth="248.0" />
+                              <Label fx:id="user11" layoutX="14.0" layoutY="4.0" prefHeight="21.0" prefWidth="247.0" text="User:" />
+                              <TextField fx:id="sendSms1" layoutX="14.0" layoutY="212.0" prefHeight="31.0" prefWidth="250.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="userPane2" layoutX="807.0" layoutY="528.0" prefHeight="297.0" prefWidth="280.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <Button fx:id="butSend2" layoutX="14.0" layoutY="258.0" mnemonicParsing="false" onAction="#senderTwo" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: beff95;" text="Send msg">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="user2" layoutX="14.0" layoutY="22.0" prefHeight="21.0" prefWidth="247.0" />
+                              <TextArea fx:id="chat2" layoutX="14.0" layoutY="43.0" prefHeight="158.0" prefWidth="248.0" />
+                              <Label fx:id="user21" layoutX="14.0" layoutY="4.0" prefHeight="21.0" prefWidth="246.0" text="User:" />
+                              <TextField fx:id="sendSms2" layoutX="14.0" layoutY="213.0" prefHeight="31.0" prefWidth="246.0" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="butStopSms" layoutX="887.0" layoutY="839.0" mnemonicParsing="false" onAction="#stopSendingSms" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: b4b4b4;" text="Finish sending" textFill="#d71c0b">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="butExit" layoutX="1470.0" layoutY="98.0" mnemonicParsing="false" onAction="#closeForm" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: ff8364;" text="Exit application">
+                           <effect>
+                              <DropShadow blurType="TWO_PASS_BOX" color="#ae0101" />
+                           </effect>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <effect>
+            <DropShadow color="#515151" />
+         </effect>
+      </TabPane>
+      <Label layoutX="1471.0" layoutY="19.0" prefHeight="25.0" prefWidth="200.0" text="Employee">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="txtEmployee" editable="false" layoutX="1471.0" layoutY="39.0" prefHeight="25.0" prefWidth="200.0" style="-fx-border-color: #787878;">
+         <effect>
+            <DropShadow color="#515151" />
+         </effect></TextField>
+   </children>
+   <effect>
+      <DropShadow color="#515151" />
+   </effect>
+</AnchorPane>

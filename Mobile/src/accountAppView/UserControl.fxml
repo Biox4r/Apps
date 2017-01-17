@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="controlOfEmployees" prefHeight="1024.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accountAppView.UserControl">
+   <children>
+      <TabPane layoutX="10.0" layoutY="16.0" prefHeight="950.0" prefWidth="1670.0" style="-fx-border-color: #cdcdce;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Edit User">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="919.0" prefWidth="1639.0" style="-fx-border-color: #cdcdce; -fx-background-color: #e3e3e3;">
+                     <children>
+                        <Pane layoutX="803.0" layoutY="140.0" prefHeight="646.0" prefWidth="397.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <TextField fx:id="txtName" layoutX="14.0" layoutY="34.0" prefHeight="25.0" prefWidth="200.0" />
+                              <TextField fx:id="txtUsername" layoutX="14.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" />
+                              <PasswordField fx:id="txtPassword" layoutX="13.0" layoutY="134.0" prefHeight="25.0" prefWidth="200.0" />
+                              <PasswordField fx:id="txtConfirmPass" layoutX="13.0" layoutY="186.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Pane layoutX="14.0" layoutY="251.0" prefHeight="52.0" prefWidth="200.0" style="-fx-border-color: #787878;">
+                                 <children>
+                                    <CheckBox fx:id="butActiveYes" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#activeYes" prefHeight="17.0" prefWidth="64.0" style="-fx-background-color: #7cf457;" text="Yes" />
+                                    <CheckBox fx:id="butActiveNo" layoutX="100.0" layoutY="18.0" mnemonicParsing="false" onAction="#activeNo" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: F84525;" text="No" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#976565" />
+                                 </effect>
+                              </Pane>
+                              <Pane layoutX="14.0" layoutY="345.0" prefHeight="52.0" prefWidth="200.0" style="-fx-border-color: #787878;">
+                                 <children>
+                                    <CheckBox fx:id="butAdminYes" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#adminYes" prefHeight="17.0" prefWidth="64.0" style="-fx-background-color: #7cf457;" text="Yes" />
+                                    <CheckBox fx:id="butAdminNo" layoutX="100.0" layoutY="18.0" mnemonicParsing="false" onAction="#adminNo" prefHeight="17.0" prefWidth="60.0" style="-fx-background-color: F84525;" text="No" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#976565" />
+                                 </effect>
+                              </Pane>
+                              <Button fx:id="butUpdate" layoutX="14.0" layoutY="593.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: a4eaff;" text="Update User">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="butCancel" layoutX="220.0" layoutY="593.0" mnemonicParsing="false" onAction="#cancelInsert" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: ff8364;" text="Cancel">
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#ae0101" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblUserName" layoutX="14.0" layoutY="65.0" prefHeight="17.0" prefWidth="200.0" text="Username">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblEmployeeName" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="Name">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblAdmin" layoutX="14.0" layoutY="324.0" prefHeight="17.0" prefWidth="200.0" text="Set if user will be admin or not">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblPassword" layoutX="14.0" layoutY="117.0" prefHeight="17.0" prefWidth="200.0" text="Password" />
+                              <Button fx:id="butInsert" layoutX="14.0" layoutY="593.0" mnemonicParsing="false" onAction="#insertUser" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: beff95;" text="Insert User">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="butDelete" layoutX="220.0" layoutY="593.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: ff8364;" text="Delete User">
+                                 <effect>
+                                    <DropShadow blurType="TWO_PASS_BOX" color="#ae0101" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblInsertName" layoutX="225.0" layoutY="34.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                              <Label fx:id="lblInsertUsername" layoutX="225.0" layoutY="82.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                              <Label fx:id="lblInsertPass" layoutX="225.0" layoutY="134.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                              <Label fx:id="lblAdmin11" layoutX="14.0" layoutY="227.0" prefHeight="17.0" prefWidth="200.0" text="Set if user will be active or not">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="13.0" layoutY="211.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Label fx:id="lblConfirmPass" layoutX="13.0" layoutY="169.0" prefHeight="17.0" prefWidth="200.0" text="Confirm password" />
+                              <Separator layoutX="13.0" layoutY="487.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Label fx:id="lblInsertConfirmPass" layoutX="225.0" layoutY="186.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                              <Separator layoutX="13.0" layoutY="396.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Separator layoutX="13.0" layoutY="308.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Label fx:id="lblInsertActive" layoutX="230.0" layoutY="264.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                              <Label fx:id="lblInsertEmployee" layoutX="230.0" layoutY="358.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                           </children>
+                        </Pane>
+                        <Label fx:id="lblMain" alignment="CENTER" contentDisplay="CENTER" layoutX="916.0" layoutY="14.0" prefHeight="17.0" prefWidth="170.0" text="Control of Users">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="butShowUsers" layoutX="454.0" layoutY="648.0" mnemonicParsing="false" onAction="#showUsers" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: b4b4b4;" text="Show Users">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Pane layoutX="1218.0" layoutY="143.0" prefHeight="648.0" prefWidth="414.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <Button fx:id="butResetPass" layoutX="14.0" layoutY="437.0" mnemonicParsing="false" onAction="#resetPass" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: b4b4b4;" text="Reset User password">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblPassReset" layoutX="14.0" layoutY="413.0" prefHeight="17.0" prefWidth="83.0" text="Password reset " textFill="#ff1414" />
+                              <Label fx:id="lblChangePass" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="Change password" textFill="#ff1414" />
+                              <Label fx:id="lblPassReset2" layoutX="97.0" layoutY="413.0" prefHeight="17.0" prefWidth="118.0" text="(Generates new pass)" />
+                              <Label fx:id="lblOldPass" layoutX="14.0" layoutY="38.0" prefHeight="17.0" prefWidth="200.0" text="Old password" />
+                              <Label fx:id="lblNewPass" layoutX="14.0" layoutY="93.0" prefHeight="17.0" prefWidth="200.0" text="New password" />
+                              <Button fx:id="butInsertPass" layoutX="14.0" layoutY="221.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: b4b4b4;" text="Insert new password">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="14.0" layoutY="150.0" prefHeight="17.0" prefWidth="200.0" text="Confirm new password" />
+                              <Separator layoutX="17.0" layoutY="263.0" prefHeight="16.0" prefWidth="383.0" />
+                              <Label fx:id="lblEditMsg2" layoutX="141.0" layoutY="12.0" prefHeight="25.0" prefWidth="250.0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="txtOldPass" layoutX="14.0" layoutY="62.0" prefHeight="25.0" prefWidth="200.0" />
+                              <PasswordField fx:id="txtNewPass" layoutX="14.0" layoutY="117.0" prefHeight="25.0" prefWidth="200.0" />
+                              <PasswordField fx:id="txtConfirmNewPass" layoutX="14.0" layoutY="176.0" prefHeight="25.0" prefWidth="200.0" />
+                              <TextField fx:id="txtGenratedPass" layoutX="14.0" layoutY="499.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblNewGenPass" layoutX="17.0" layoutY="472.0" prefHeight="17.0" prefWidth="200.0" text="New password" />
+                              <Button fx:id="butDone" layoutX="14.0" layoutY="591.0" mnemonicParsing="false" onAction="#closeDoneBut" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: beff95;" text="Done">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <effect>
+                              <DropShadow color="WHITE" />
+                           </effect>
+                        </Pane>
+                        <Label fx:id="lblPassMenagment" layoutX="1220.0" layoutY="120.0" prefHeight="17.0" prefWidth="200.0" text="Password menagment">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="805.0" layoutY="120.0" prefHeight="17.0" prefWidth="170.0" text="User menagment">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboUserSearch" editable="true" layoutX="29.0" layoutY="93.0" prefHeight="27.0" prefWidth="250.0" style="-fx-border-color: #7cf457;">
+                           <effect>
+                              <DropShadow color="#27a3b9" />
+                           </effect>
+                        </ComboBox>
+                        <Label fx:id="lblEmployeeNameSearch" layoutX="29.0" layoutY="66.0" prefHeight="17.0" prefWidth="251.0" text="Search for user">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tableUser" layoutX="29.0" layoutY="140.0" prefHeight="502.0" prefWidth="625.0">
+                          <columns>
+                            <TableColumn fx:id="tbName" prefWidth="240.0" text="Name" />
+                            <TableColumn fx:id="tbUsername" prefWidth="220.0" text="Username" />
+                              <TableColumn fx:id="tbAdmin" minWidth="8.0" prefWidth="77.0" text="Admin" />
+                              <TableColumn fx:id="tbActive" prefWidth="88.0" text="Active" />
+                          </columns>
+                        </TableView>
+                        <Pane layoutX="668.0" layoutY="141.0" prefHeight="40.0" prefWidth="115.0" style="-fx-border-color: #787878;">
+                           <children>
+                              <Button fx:id="butNewEmployee" layoutX="7.0" layoutY="8.0" mnemonicParsing="false" onAction="#newUser" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: beff95;" text="New User">
+                                 <effect>
+                                    <DropShadow color="#ffd5d5" />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <effect>
+                              <DropShadow color="#27a3b9" />
+                           </effect>
+                        </Pane>
+                        <Label layoutX="873.0" layoutY="581.0" prefHeight="25.0" prefWidth="120.0" />
+                        <Separator layoutX="793.0" layoutY="142.0" orientation="VERTICAL" prefHeight="650.0" prefWidth="12.0" />
+                        <Label fx:id="lblEditMsg" layoutX="1015.0" layoutY="797.0" prefHeight="25.0" prefWidth="410.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Separator layoutX="1208.0" layoutY="138.0" orientation="VERTICAL" prefHeight="650.0" prefWidth="12.0" />
+                        <Label fx:id="lblSelectUser" layoutX="296.0" layoutY="94.0" prefHeight="25.0" prefWidth="150.0" textFill="RED" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="butClose" layoutX="1480.0" layoutY="978.0" mnemonicParsing="false" onAction="#closeForm" prefHeight="25.0" prefWidth="200.0" text="Close" textFill="#c60000">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
