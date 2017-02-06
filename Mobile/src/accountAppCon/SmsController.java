@@ -30,7 +30,7 @@ public class SmsController extends ConnectionWorkOut {
     
     public boolean insertSms(Sms sms) {
         getId = new TempID();
-        String query = "insert into SIEMENSSMS (ACCID,AMOUNT,CHARGED) values (?,?,?)";
+        String query = "insert into SMS (ACCID,AMOUNT,CHARGED) values (?,?,?)";
         try {
             synchronized (this){prSt = (OraclePreparedStatement) connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             getValuesOfSms(sms);
