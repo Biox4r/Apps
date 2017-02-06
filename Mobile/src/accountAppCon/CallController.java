@@ -28,7 +28,7 @@ public class CallController extends ConnectionWorkOut {
 
     public boolean insertCall(Call call) {
         getId = new TempID();
-        String query = "insert into SIEMENSCALLS (ACCID,DURATION,CHARGED) values (?,?,?)";
+        String query = "insert into CALLS (ACCID,DURATION,CHARGED) values (?,?,?)";
         try {
             synchronized (this) {
                 prSt = (OraclePreparedStatement) connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
