@@ -31,7 +31,7 @@ public class MmsController extends ConnectionWorkOut {
 
     public boolean insertMms(Mms mms) {
         getId = new TempID();
-        String query = "insert into SIEMENSMMS (ACCID,AMOUNT,CHARGED) values (?,?,?)";
+        String query = "insert into MMS (ACCID,AMOUNT,CHARGED) values (?,?,?)";
         
         try {
             synchronized (this){
