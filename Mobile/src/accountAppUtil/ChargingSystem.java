@@ -335,7 +335,7 @@ public class ChargingSystem extends Thread {
 
             // Start thread
         } else {
-            text.appendText("Unsuficient founds, please recharge account");
+            text.appendText("insufficient funds, please recharge account");
             stopThread();
 
         }
@@ -434,7 +434,7 @@ public class ChargingSystem extends Thread {
 
             // Start thread
         } else {
-            text.appendText("Unsuficient founds, please recharge account");
+            text.appendText("insufficient funds, please recharge account");
             stopThread();
 
         }
