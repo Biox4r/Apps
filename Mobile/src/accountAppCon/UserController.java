@@ -46,7 +46,7 @@ public class UserController extends ConnectionWorkOut {
         ComboBox model = new ComboBox();
         try {
 
-            String query = "SELECT name FROM SIEMENSEMPLOYEE WHERE name LIKE '" + pretraga + "%';";
+            String query = "SELECT name FROM EMPLOYEE WHERE name LIKE '" + pretraga + "%';";
             prSt = (OraclePreparedStatement) connection.createStatement();
             synchronized (this) {
                 rs = (OracleResultSet) prSt.executeQuery(query);
@@ -69,8 +69,8 @@ public class UserController extends ConnectionWorkOut {
         User usr = new User();
 
         //String query = "SELECT * FROM Employee WHERE Employeename LIKE '" + pretraga.substring(0, pretraga.indexOf(" ")) + "%' AND prezime like '" + pretraga.substring(pretraga.indexOf(" ") + 1, pretraga.length()) + "%';";
-        String query1 = "SELECT * FROM SIEMENSEMPLOYEE WHERE name LIKE '" + pretraga + "'";
-        String query2 = "Select SIEMENSEMPLOYEE.*, SIEMENSEMPLOYEE.name as oName from SIEMENSEMPLOYEE full join owner ON usr.owner_id=owner.id WHERE usr.name LIKE '" + pretraga + "'";
+        String query1 = "SELECT * FROM EMPLOYEE WHERE name LIKE '" + pretraga + "'";
+        String query2 = "Select EMPLOYEE.*, EMPLOYEE.name as oName from EMPLOYEE full join owner ON usr.owner_id=owner.id WHERE usr.name LIKE '" + pretraga + "'";
 
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query1);
@@ -108,7 +108,7 @@ public class UserController extends ConnectionWorkOut {
         User usr = new User();
 
         //String query = "SELECT * FROM Employee WHERE Employeename LIKE '" + id.substring(0, id.indexOf(" ")) + "%' AND prezime like '" + id.substring(id.indexOf(" ") + 1, id.length()) + "%';";
-        String query1 = "SELECT * FROM SIEMENSEMPLOYEE WHERE id LIKE '" + id + "'";
+        String query1 = "SELECT * FROM EMPLOYEE WHERE id LIKE '" + id + "'";
         String query2 = "Select usr.*, owner.name as oName from usr left join owner ON usr.owner_id=owner.id WHERE usr.id LIKE '" + id + "'";
 
         try {
@@ -143,7 +143,7 @@ public class UserController extends ConnectionWorkOut {
     public ArrayList<String> getUserNames() {
         ArrayList<String> listOfUsers = new ArrayList<>();
         String tempUserNames = null;
-        String query = "SELECT name FROM SIEMENSEMPLOYEE";
+        String query = "SELECT name FROM EMPLOYEE";
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query);
             //prSt.setString(1, pretraga);
@@ -167,7 +167,7 @@ public class UserController extends ConnectionWorkOut {
 
         ObservableList<User> userList = FXCollections.observableArrayList();
 
-        String query1 = "SELECT * FROM SIEMENSEMPLOYEE";
+        String query1 = "SELECT * FROM EMPLOYEE";
         //String query = "SELECT * FROM vozilo WHERE stranka = 1";
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query1);
@@ -205,7 +205,7 @@ public class UserController extends ConnectionWorkOut {
         String temp;
         //query for employee selection based on username and password
         try {
-            String sql = "select * from SIEMENSEMPLOYEE where username=?";
+            String sql = "select * from EMPLOYEE where username=?";
             prSt = (OraclePreparedStatement) connection.prepareStatement(sql);
             prSt.setString(1, username);
             //prSt.setString(2, password);
@@ -242,7 +242,7 @@ public class UserController extends ConnectionWorkOut {
     public boolean chekUserName(String username) {
         boolean postoji = false;
         try {
-            prSt = (OraclePreparedStatement) connection.prepareStatement("select ID from SIEMENSEMPLOYEE where username=?");
+            prSt = (OraclePreparedStatement) connection.prepareStatement("select ID from EMPLOYEE where username=?");
             prSt.setString(1, username);
             synchronized (this) {
                 rs = (OracleResultSet) prSt.executeQuery();
@@ -265,7 +265,7 @@ public class UserController extends ConnectionWorkOut {
         try {
             synchronized (this) {
                 prSt = (OraclePreparedStatement) connection.prepareStatement(
-                        "insert into SIEMENSEMPLOYEE (name,username,password,active,admin) values (?,?,?,?,?)",
+                        "insert into EMPLOYEE (name,username,password,active,admin) values (?,?,?,?,?)",
                         Statement.RETURN_GENERATED_KEYS);
                 getValuesOfUser(usr);
                 //usr.setId(getId.getNextId());
@@ -287,7 +287,7 @@ public class UserController extends ConnectionWorkOut {
     public boolean updateUser(User usr) {
         try {
             synchronized (this) {
-                prSt = (OraclePreparedStatement) connection.prepareStatement("update SIEMENSEMPLOYEE set name=?,username=?,password=?,active=?,admin=? where ID='" + usr.getId() + "'");
+                prSt = (OraclePreparedStatement) connection.prepareStatement("update EMPLOYEE set name=?,username=?,password=?,active=?,admin=? where ID='" + usr.getId() + "'");
                 getValuesOfUser(usr);
                 prSt.executeUpdate();
             }
@@ -305,7 +305,7 @@ public class UserController extends ConnectionWorkOut {
         try {
             synchronized (this) {
                 prSt = (OraclePreparedStatement) connection.prepareStatement(
-                        "delete SIEMENSEMPLOYEE where ID='" + usr.getId() + "'");
+                        "delete EMPLOYEE where ID='" + usr.getId() + "'");
                 prSt.executeUpdate();
             }
             prSt.close();
