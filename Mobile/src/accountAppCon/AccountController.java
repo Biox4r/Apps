@@ -35,7 +35,7 @@ public class AccountController extends ConnectionWorkOut {
     public ComboBox getLista(String pretraga) {
         ComboBox model = new ComboBox();
         try {
-            String query = "SELECT key FROM SIEMENSACCOUNT WHERE key LIKE '" + pretraga + "%';";
+            String query = "SELECT key FROM ACCOUNT WHERE key LIKE '" + pretraga + "%';";
             prSt = (OraclePreparedStatement) connection.createStatement();
             synchronized (this) {
                 rs = (OracleResultSet) prSt.executeQuery(query);
@@ -52,7 +52,7 @@ public class AccountController extends ConnectionWorkOut {
     public ArrayList<String> getKey() {
         ArrayList<String> listOfUsers = new ArrayList<>();
         String tempAccKey = null;
-        String query = "SELECT key FROM SIEMENSACCOUNT";
+        String query = "SELECT key FROM ACCOUNT";
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query);
             //prSt.setString(1, pretraga);
@@ -74,7 +74,7 @@ public class AccountController extends ConnectionWorkOut {
     public ArrayList<Integer> getIds() {
         ArrayList<Integer> listOfIds = new ArrayList<>();
         Integer tempId = null;
-        String query = "SELECT id FROM SIEMENSACCOUNT";
+        String query = "SELECT id FROM ACCOUNT";
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query);
             //prSt.setString(1, pretraga);
@@ -96,7 +96,7 @@ public class AccountController extends ConnectionWorkOut {
     public Account getAccounts(String pretraga) {
 
         //String query = "SELECT * FROM Employee WHERE Employeename LIKE '" + pretraga.substring(0, pretraga.indexOf(" ")) + "%' AND prezime like '" + pretraga.substring(pretraga.indexOf(" ") + 1, pretraga.length()) + "%';";
-        String query1 = "SELECT * FROM SIEMENSACCOUNT WHERE KEY LIKE '" + pretraga + "'";
+        String query1 = "SELECT * FROM ACCOUNT WHERE KEY LIKE '" + pretraga + "'";
 
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query1);
@@ -130,7 +130,7 @@ public class AccountController extends ConnectionWorkOut {
 
     public Account getAccountById(Integer id) {
 
-        String query1 = "SELECT * FROM SIEMENSACCOUNT WHERE id LIKE '" + id + "' AND keytype LIKE 1";
+        String query1 = "SELECT * FROM ACCOUNT WHERE id LIKE '" + id + "' AND keytype LIKE 1";
 
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query1);
@@ -167,7 +167,7 @@ public class AccountController extends ConnectionWorkOut {
 
         ObservableList<Account> accList = FXCollections.observableArrayList();
 
-        String query1 = "Select * from SIEMENSACCOUNT";
+        String query1 = "Select * from ACCOUNT";
         //String query = "SELECT * FROM vozilo WHERE stranka = 1";
         try {
             prSt = (OraclePreparedStatement) connection.prepareStatement(query1);
@@ -207,7 +207,7 @@ public class AccountController extends ConnectionWorkOut {
         getId = new TempID();
 
         try {
-            String query = "Insert into SIEMENSACCOUNT (key, keytype, currency, active, initbalance, minbalance) values (?,?,?,?,?,?)";
+            String query = "Insert into ACCOUNT (key, keytype, currency, active, initbalance, minbalance) values (?,?,?,?,?,?)";
 
             synchronized (this) {
                 prSt = (OraclePreparedStatement) connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -229,7 +229,7 @@ public class AccountController extends ConnectionWorkOut {
     public boolean updateAccount(Account acc) {
         try {
             synchronized (this) {
-                prSt = (OraclePreparedStatement) connection.prepareStatement("update SIEMENSACCOUNT set key=?,keytype=?,currency=?,active=?,initbalance=?,minbalance=? where ID='" + acc.getId() + "'");
+                prSt = (OraclePreparedStatement) connection.prepareStatement("update ACCOUNT set key=?,keytype=?,currency=?,active=?,initbalance=?,minbalance=? where ID='" + acc.getId() + "'");
                 getValuesOfAccount(acc);
                 prSt.executeUpdate();
             }
@@ -247,7 +247,7 @@ public class AccountController extends ConnectionWorkOut {
         try {
             synchronized (this) {
                 prSt = (OraclePreparedStatement) connection.prepareStatement(
-                        "delete SIEMENSACCOUNT where ID='" + acc.getId() + "'");
+                        "delete ACCOUNT where ID='" + acc.getId() + "'");
                 prSt.executeUpdate();
             }
             prSt.close();
